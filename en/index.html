@@ -46,7 +46,7 @@
       <div class="eyebrow" style="background:var(--yellow);border:2.5px solid var(--ink);border-radius:999px;padding:6px 14px;transform:rotate(-1.5deg)">
         Hong Kong · Phonics &amp; Literacy
       </div>
-      <h1 style="margin-top:20px">Learn real <span class="hl">English</span> from a native-speaking teacher</h1>
+      <h1 style="margin-top:20px">Native-speaker phonics,<br><span class="hl">groups of 3–5</span></h1>
       <p class="lede">Structured phonics and English literacy for Kindergarten, Primary and Secondary students. Online, in person in Kwai Fong, or in your school.</p>
       <div class="hero-cta">
         <a class="btn" href="#consult">Book a free 15-min consult →</a>
@@ -256,7 +256,7 @@
         WhatsApp Ryan
       </a>
     </div>
-    <form class="form" onsubmit="event.preventDefault();this.querySelector('.btn').textContent='Demo only — form not wired'">
+    <form class="form">
       <div class="field"><label for="a-name">Your name</label><input id="a-name" placeholder="Parent's name"></div>
       <div class="field"><label for="a-age">Child's age</label><input id="a-age" placeholder="e.g. 6"></div>
       <div class="field"><label for="a-int">Interested in</label>
@@ -267,7 +267,7 @@
         </select>
       </div>
       <button class="btn dark" type="submit">Book my free consult →</button>
-      <div class="note">Demo prototype — the form is not connected yet.</div>
+      <div class="note">Submitting opens WhatsApp with your details already filled in.</div>
     </form>
   </div>
 </section>
@@ -305,5 +305,29 @@
   <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.6-.1-1.2-.4-3-1.6-4.2-3.4-.7-1-1.2-2.1-1-3 .1-.6.5-1.1.9-1.3.2-.1.4-.1.5-.1h.4c.2 0 .4 0 .5.4l.7 1.7c.1.2 0 .4-.1.5l-.3.4c-.1.1-.2.3-.1.5.4.8 1.6 2 2.4 2.4.2.1.4 0 .5-.1l.5-.6c.1-.2.3-.2.5-.1l1.6.8c.2.1.3.3.3.4 0 .2 0 .8-.2 1z"/></svg>
   WhatsApp
 </a>
+
+<script>
+(function(){
+  var PREFIX = "Hello Ryan, I would like to book the free 15-min parent consultation.";
+  var OK = "Opening WhatsApp with your details filled in\u2026";
+  var WA = 'https://wa.me/85259898508?text=';
+  document.querySelectorAll('form').forEach(function(f){
+    var btn = f.querySelector('button');
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var lines = [];
+      f.querySelectorAll('input, select, textarea').forEach(function(el){
+        var lab = el.id ? f.querySelector('label[for="' + el.id + '"]') : null;
+        var key = lab ? lab.textContent.trim() : el.name;
+        var val = (el.value || '').trim();
+        lines.push(key + ': ' + (val || '-'));
+      });
+      var msg = PREFIX + '\n\n' + lines.join('\n');
+      window.open(WA + encodeURIComponent(msg), '_blank');
+      if (btn) { var t = btn.textContent; btn.textContent = OK; setTimeout(function(){ btn.textContent = t; }, 4000); }
+    });
+  });
+})();
+</script>
 </body>
 </html>

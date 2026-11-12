@@ -298,7 +298,7 @@
         WhatsApp Ryan
       </a>
     </div>
-    <form class="form" onsubmit="event.preventDefault();this.querySelector('.btn').textContent='示範頁面，暫未開放提交'">
+    <form class="form">
       <div class="field"><label for="z-name">您的稱呼</label><input id="z-name" placeholder="家長姓名"></div>
       <div class="field"><label for="z-age">孩子的年齡</label><input id="z-age" placeholder="例如 6"></div>
       <div class="field"><label for="z-int">希望了解的課程</label>
@@ -309,7 +309,7 @@
         </select>
       </div>
       <button class="btn dark" type="submit">預約免費諮詢 →</button>
-      <div class="note">此為示範頁面，表格暫未開放提交。</div>
+      <div class="note">提交後會開啟 WhatsApp，內容已自動填好。</div>
     </form>
   </div>
 </section>
@@ -347,5 +347,29 @@
   <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.6-.1-1.2-.4-3-1.6-4.2-3.4-.7-1-1.2-2.1-1-3 .1-.6.5-1.1.9-1.3.2-.1.4-.1.5-.1h.4c.2 0 .4 0 .5.4l.7 1.7c.1.2 0 .4-.1.5l-.3.4c-.1.1-.2.3-.1.5.4.8 1.6 2 2.4 2.4.2.1.4 0 .5-.1l.5-.6c.1-.2.3-.2.5-.1l1.6.8c.2.1.3.3.3.4 0 .2 0 .8-.2 1z"/></svg>
   WhatsApp
 </a>
+
+<script>
+(function(){
+  var PREFIX = "你好 Ryan，我想預約免費 15 分鐘家長諮詢。";
+  var OK = "\u6b63\u5728\u958b\u555f WhatsApp\uff0c\u5167\u5bb9\u5df2\u586b\u597d\u2026";
+  var WA = 'https://wa.me/85259898508?text=';
+  document.querySelectorAll('form').forEach(function(f){
+    var btn = f.querySelector('button');
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var lines = [];
+      f.querySelectorAll('input, select, textarea').forEach(function(el){
+        var lab = el.id ? f.querySelector('label[for="' + el.id + '"]') : null;
+        var key = lab ? lab.textContent.trim() : el.name;
+        var val = (el.value || '').trim();
+        lines.push(key + ': ' + (val || '-'));
+      });
+      var msg = PREFIX + '\n\n' + lines.join('\n');
+      window.open(WA + encodeURIComponent(msg), '_blank');
+      if (btn) { var t = btn.textContent; btn.textContent = OK; setTimeout(function(){ btn.textContent = t; }, 4000); }
+    });
+  });
+})();
+</script>
 </body>
 </html>
