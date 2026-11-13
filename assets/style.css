@@ -362,3 +362,10 @@
 .quote .form{background:var(--cream);color:var(--ink)}
 .tagrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
 .tagrow span{font-weight:800;font-size:13px;border:2px solid var(--cream);border-radius:999px;padding:5px 13px;color:var(--cream)}
+
+/* block price label (mobile only — desktop has the column header) */
+.price-row .block em{display:none;font-style:normal;font-weight:800;font-size:12px;letter-spacing:.06em;text-transform:uppercase;opacity:.75;margin-right:6px}
+@media(max-width:860px){
+  .price-row .block em{display:inline}
+  .price-row .block{display:flex;align-items:baseline;gap:2px;flex-wrap:wrap}
+}
