@@ -384,5 +384,34 @@
   });
 })();
 </script>
+
+<div class="sb-modal" id="sbModal" role="dialog" aria-modal="true" aria-label="英語拼音體驗課">
+  <div class="box">
+    <button class="x" type="button" aria-label="關閉">×</button>
+    <div class="cap">
+      <b>11 月 28 日 · 英語拼音體驗課</b>
+      <a href="../assets/SoundBloom-event-zh-A4.pdf" target="_blank" rel="noopener">A4 海報</a>
+    </div>
+    <a href="../assets/SoundBloom-event-zh-A4.pdf" target="_blank" rel="noopener">
+      <img src="../assets/event-zh.jpg" alt="英語拼音體驗課海報：2026 年 11 月 28 日，6–9 歲 11am，3–6 歲 12noon" width="1000" height="1414">
+    </a>
+  </div>
+</div>
+
+<script>
+(function(){
+  var KEY='sb_ev_2026_11_28';
+  try{ var t=localStorage.getItem(KEY); if(t && Date.now()-(+t) < 86400000) return; }catch(e){}
+  var m=document.getElementById('sbModal');
+  if(!m) return;
+  function open(){ m.classList.add('open'); document.body.style.overflow='hidden'; var x=m.querySelector('.x'); if(x) x.focus(); }
+  function close(){ m.classList.remove('open'); document.body.style.overflow=''; try{ localStorage.setItem(KEY, String(Date.now())); }catch(e){} }
+  m.querySelector('.x').addEventListener('click', close);
+  m.addEventListener('click', function(e){ if(e.target===m) close(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
+  setTimeout(open, 700);
+})();
+</script>
+
 </body>
 </html>
