@@ -369,3 +369,11 @@
   .price-row .block em{display:inline}
   .price-row .block{display:flex;align-items:baseline;gap:2px;flex-wrap:wrap}
 }
+
+/* ---------- who does what ---------- */
+.roles{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2.4vw,26px);margin-top:clamp(18px,2.6vw,26px)}
+@media(max-width:700px){.roles{grid-template-columns:1fr}}
+.roles .r{border-top:3px solid var(--ink);padding-top:12px}
+.roles h4{font-family:'Baloo 2';font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.55;margin-bottom:5px}
+.roles b{display:block;font-family:'Baloo 2';font-size:19px;line-height:1.25;margin-bottom:4px}
+.roles p{margin:0;font-weight:600;font-size:14.5px;line-height:1.6;opacity:.8}
