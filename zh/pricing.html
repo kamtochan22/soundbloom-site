@@ -261,5 +261,30 @@
   });
 })();
 </script>
+
+<div class="sb-modal" id="sbModal" role="dialog" aria-modal="true" aria-label="英語拼音體驗課">
+  <div class="box">
+    <button class="x" type="button" aria-label="關閉">×</button>
+    <div class="cap">
+      <b>11 月 28 日 · 英語拼音體驗課</b>
+      <a href="../assets/SoundBloom-event-zh-A4.pdf" target="_blank" rel="noopener">A4 海報</a>
+    </div>
+    <a href="../assets/SoundBloom-event-zh-A4.pdf" target="_blank" rel="noopener">
+      <img src="../assets/event-zh.jpg?v=2" alt="英語拼音體驗課海報" width="1000" height="1414">
+    </a>
+  </div>
+</div>
+<script>
+(function(){
+  var m=document.getElementById('sbModal');
+  if(!m) return;
+  function open(){ m.classList.add('open'); document.body.style.overflow='hidden'; var x=m.querySelector('.x'); if(x) x.focus(); }
+  function close(){ m.classList.remove('open'); document.body.style.overflow=''; }
+  m.querySelector('.x').addEventListener('click', close);
+  m.addEventListener('click', function(e){ if(e.target===m) close(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
+  setTimeout(open, 450);
+})();
+</script>
 </body>
 </html>

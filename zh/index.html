@@ -400,17 +400,14 @@
 
 <script>
 (function(){
-  var KEY='sb_ev_shown';
-  var force=/[?&]event=1/.test(location.search);
-  if(!force){ try{ if(sessionStorage.getItem(KEY)) return; }catch(e){} }
   var m=document.getElementById('sbModal');
   if(!m) return;
   function open(){ m.classList.add('open'); document.body.style.overflow='hidden'; var x=m.querySelector('.x'); if(x) x.focus(); }
-  function close(){ m.classList.remove('open'); document.body.style.overflow=''; try{ sessionStorage.setItem(KEY,'1'); }catch(e){} }
+  function close(){ m.classList.remove('open'); document.body.style.overflow=''; }
   m.querySelector('.x').addEventListener('click', close);
   m.addEventListener('click', function(e){ if(e.target===m) close(); });
   document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
-  setTimeout(open, 700);
+  setTimeout(open, 450);
 })();
 </script>
 

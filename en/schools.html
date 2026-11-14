@@ -239,5 +239,30 @@
   });
 })();
 </script>
+
+<div class="sb-modal" id="sbModal" role="dialog" aria-modal="true" aria-label="Phonics Trial Class">
+  <div class="box">
+    <button class="x" type="button" aria-label="Close">×</button>
+    <div class="cap">
+      <b>28 Nov · Phonics Trial Class</b>
+      <a href="../assets/SoundBloom-event-en-A4.pdf" target="_blank" rel="noopener">A4 poster</a>
+    </div>
+    <a href="../assets/SoundBloom-event-en-A4.pdf" target="_blank" rel="noopener">
+      <img src="../assets/event-en.jpg?v=2" alt="Phonics trial class poster" width="1000" height="1414">
+    </a>
+  </div>
+</div>
+<script>
+(function(){
+  var m=document.getElementById('sbModal');
+  if(!m) return;
+  function open(){ m.classList.add('open'); document.body.style.overflow='hidden'; var x=m.querySelector('.x'); if(x) x.focus(); }
+  function close(){ m.classList.remove('open'); document.body.style.overflow=''; }
+  m.querySelector('.x').addEventListener('click', close);
+  m.addEventListener('click', function(e){ if(e.target===m) close(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
+  setTimeout(open, 450);
+})();
+</script>
 </body>
 </html>
