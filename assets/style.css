@@ -391,3 +391,8 @@
 .sb-modal img{width:100%;height:auto;display:block;border-radius:10px;border:2px solid var(--ink)}
 @media(max-width:480px){.sb-modal{padding:12px}.sb-modal .box{padding:10px 10px 12px}.sb-modal .x{width:38px;height:38px;top:-11px;right:-2px;font-size:21px}}
 @media(prefers-reduced-motion:reduce){.sb-modal .box{animation:none}}
+
+/* three-up variant of the level cards */
+.levels-grid.three{grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.levels-grid.three{grid-template-columns:1fr}}
+.levels-grid.three .lvl{min-height:0}
