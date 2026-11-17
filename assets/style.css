@@ -396,3 +396,24 @@
 .levels-grid.three{grid-template-columns:repeat(3,1fr)}
 @media(max-width:900px){.levels-grid.three{grid-template-columns:1fr}}
 .levels-grid.three .lvl{min-height:0}
+
+  /* ---------- ALL PROGRAMMES GRID ---------- */
+  .prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:6px}
+  .prog{
+    display:flex;align-items:center;gap:14px;text-decoration:none;
+    background:#fff;border:var(--line);border-radius:var(--r);
+    padding:16px 18px;box-shadow:var(--hard-sm);
+    transition:transform .18s ease,box-shadow .18s ease;
+  }
+  .prog:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--ink)}
+  .prog .ico{
+    flex:none;width:52px;height:52px;display:grid;place-items:center;
+    font-size:26px;line-height:1;border-radius:16px;
+    border:2.5px solid var(--ink);background:var(--yellow);
+  }
+  .prog:nth-child(3n+2) .ico{background:var(--pink-soft)}
+  .prog:nth-child(3n) .ico{background:var(--green-soft)}
+  .prog b{display:block;font-family:'Baloo 2',system-ui,sans-serif;font-weight:800;font-size:20px;line-height:1.1}
+  .prog i{display:block;font-style:normal;font-size:13.5px;font-weight:700;opacity:.62;margin-top:3px}
+  @media(max-width:900px){.prog-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:620px){.prog-grid{grid-template-columns:1fr}.prog .ico{width:46px;height:46px;font-size:22px}}
