@@ -256,6 +256,8 @@
 (function(){
   var m=document.getElementById('sbModal');
   if(!m) return;
+  // ?event=0 可以暫時唔彈（方便睇網頁）
+  if(new URLSearchParams(location.search).get('event')==='0') return;
   function open(){ m.classList.add('open'); document.body.style.overflow='hidden'; var x=m.querySelector('.x'); if(x) x.focus(); }
   function close(){ m.classList.remove('open'); document.body.style.overflow=''; }
   m.querySelector('.x').addEventListener('click', close);

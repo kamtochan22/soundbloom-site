@@ -379,7 +379,7 @@
 .roles p{margin:0;font-weight:600;font-size:14.5px;line-height:1.6;opacity:.8}
 
 /* ---------- event popup ---------- */
-.sb-modal{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(18,63,38,.55);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+.sb-modal{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(18,63,38,.40);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}
 .sb-modal.open{display:flex}
 .sb-modal .box{position:relative;width:min(430px,100%);max-height:90vh;overflow:auto;background:#FFF7EC;border:3px solid var(--ink);border-radius:18px;box-shadow:8px 8px 0 var(--ink);padding:14px 14px 16px;animation:sbPop .28s ease-out}
 @keyframes sbPop{from{transform:scale(.94)}to{transform:scale(1)}}
